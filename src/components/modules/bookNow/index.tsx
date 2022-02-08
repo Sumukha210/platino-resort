@@ -29,10 +29,10 @@ const BookNow: React.FC<sliderImagesType> = ({ images }) => {
       }
     ).from(children("figure"), {
       y: 80,
-      duration: 0.9,
-      ease: "power4.In",
-      stagger: 0.3,
-      scale: 1.5,
+      duration: 1.1,
+      ease: "power1.easeIn",
+      stagger: 0.4,
+      scale: 0.8,
       transformOrigin: "center",
       autoAlpha: 0,
     });
