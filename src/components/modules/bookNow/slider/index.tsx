@@ -12,7 +12,7 @@ const CarouselSlider: React.FC<sliderImagesType> = ({ images }) => {
         naturalSlideWidth={100}
         naturalSlideHeight={125}
         totalSlides={images.length}
-        infinite={true}
+        infinite={false}
         visibleSlides={3.9}>
         <Slider classNameTray="parentSlidecustom-container">
           {images.map((src, num) => (
