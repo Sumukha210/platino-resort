@@ -5,6 +5,7 @@ import AboutIntro from "@/module/about_intro";
 import Facilities from "@/module/facilities";
 import Dining from "@/layout/home_page/dining";
 import Wellness from "@/layout/home_page/wellness";
+import BookNowSection from "@/layout/home_page/BookNowSection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Facilities />
       <Dining />
       <Wellness />
+      <BookNowSection />
     </>
   );
 };

@@ -12,23 +12,23 @@ export const useHeroAnimation = (
     tl.current.to(children(".title span"), {
       autoAlpha: 1,
       y: 0,
-      duration: 2.5,
-      ease: "power3.inOut",
+      duration: 1.6,
+      ease: "power4.easeIn",
       stagger: 0.1,
     });
 
     forFrontPage &&
       tl.current
-        .to(children(".btnContainer"), { y: 0, autoAlpha: 1 }, "-=1")
+        .to(children(".btnContainer"), { y: 0, autoAlpha: 1 }, "-=0.2")
         .from(
           children(".feature span"),
           {
             y: 40,
             autoAlpha: 0,
-            duration: 1.2,
-            ease: "power4.inOut",
+            duration: 0.8,
+            ease: "power4.easeIn",
           },
-          "-=0.8"
+          "-=0.4"
         );
   }, []);
 };

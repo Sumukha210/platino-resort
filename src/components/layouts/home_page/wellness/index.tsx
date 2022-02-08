@@ -1,27 +1,47 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import Slider from "./slider";
+import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import { gsap } from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";
 
 const Wellness = () => {
   const { push } = useRouter();
+  const wrapperRef = useRef(null);
+  const children = gsap.utils.selector(wrapperRef);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useIsomorphicLayoutEffect(() => {
+    scrollingTextAnimation({
+      trigger: wrapperRef.current,
+      targets: [
+        children(".heading"),
+        children(".subtitle"),
+        children(".exploreBtn"),
+      ],
+    });
+  }, []);
 
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <div className="header">
         <div className="custom-container">
           <div className="row justify-content-center">
             <div className="col-md-10">
               <div className="row">
                 <div className="col-lg-7">
-                  <h2 className="heading-3 bold">Wellness</h2>
-                  <p className="sub-title-2">
+                  <h2 className="heading-3 bold heading">Wellness</h2>
+                  <p className="sub-title-2 subtitle">
                     Wellness is very much on the menu. The Resort has both
                     indoor and outdoor swimming pool, on two different levels,
                     plus a spa, a mosaic-tiled hammam with stone seating, and a
                     Jacuzzi.
                   </p>
-                  <h5 className="caption-3" onClick={() => push("/wellness")}>
+                  <h5
+                    className="caption-3 exploreBtn"
+                    onClick={() => push("/wellness")}>
                     Explore Wellness & Spa
                   </h5>
                 </div>

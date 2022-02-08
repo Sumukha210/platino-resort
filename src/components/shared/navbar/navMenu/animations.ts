@@ -46,20 +46,20 @@ export const useNavbarMenuAnimation = ({
         {
           autoAlpha: 0,
           duration: 0.6,
-          ease: "power1.in",
+          ease: "power1.In",
         }
       )
       .to(children("#navMenu"), {
         width: "20%",
-        duration: 1,
-        ease: "power4.in",
+        duration: 1.1,
+        ease: "Power4.easeIn",
       })
       .to(
         children("#navMenu"),
         {
           width: "100%",
-          duration: 1,
-          ease: "power4.in",
+          duration: 1.1,
+          ease: "Power4.easeIn",
           delay: 0.3,
         },
         "<"
@@ -68,7 +68,7 @@ export const useNavbarMenuAnimation = ({
         stagger: 0.05,
         autoAlpha: 0,
         y: 30,
-        ease: "Power1.in",
+        ease: "power1.In",
       })
       .from(
         [children("#navMenu .personalBlock"), children("#navMenu .logoBlock")],
@@ -76,14 +76,14 @@ export const useNavbarMenuAnimation = ({
           y: 20,
           autoAlpha: 0,
           duration: 0.8,
-          ease: "power1.in",
+          ease: "power1.In",
           stagger: 0.4,
         },
         "-=0.5"
       )
       .to(
         children(".navbar__menu .menu"),
-        { autoAlpha: 1, ease: "power1.in" },
+        { autoAlpha: 1, ease: "power1.In" },
         "-=1.6"
       );
   }, [firstTime]);
@@ -92,7 +92,7 @@ export const useNavbarMenuAnimation = ({
     if (menuOpen) {
       tl.current!.play();
     } else {
-      tl.current!.reverse(3.5);
+      tl.current!.reverse(3.8);
     }
   }, [menuOpen]);
 };
