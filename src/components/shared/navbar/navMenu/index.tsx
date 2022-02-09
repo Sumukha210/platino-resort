@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
-import { Grid, NavWrapper, PersonalInfoBlock } from "./styles";
+import { CloseMenu, Grid, NavWrapper, PersonalInfoBlock } from "./styles";
 import { gsap } from "gsap";
 import PersonalInfo from "@/layout/contact_page/address/PersonalInfo";
 import RightSideSection from "./RightSideSection";
 import LeftSideSection from "./LeftSideSection";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface navMenuType {
   closeMenu: () => void;
@@ -16,6 +17,15 @@ const NavMenu: React.FC<navMenuType> = ({ closeMenu }) => {
 
   return (
     <NavWrapper id="navMenu">
+      <CloseMenu id="closeNavMenu">
+        <div className="custom-container">
+          <span>
+            <AiOutlineClose onClick={() => closeMenu()} />
+          </span>
+          <span className="sub-title-2">Close Menu</span>
+        </div>
+      </CloseMenu>
+
       <Grid>
         <LeftSideSection
           closeMenu={closeMenu}

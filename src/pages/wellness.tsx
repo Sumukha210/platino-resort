@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "@/module/hero";
 import bannerImg from "@/assets/images/outdoor-pool.jpg";
 import Intro from "@/layout/wellness_page/intro";
 import Section from "@/layout/wellness_page/section";
@@ -16,14 +15,13 @@ import massage2Img from "@/assets/images/massage-2-md.jpg";
 import poolImg from "@/assets/images/pool.jpg";
 import swim1 from "@/assets/images/swim-1.jpg";
 import swim2 from "@/assets/images/swim-2.jpg";
+import Layout from "@/shared/Layout";
 
 const Wellness = () => {
   return (
-    <>
-      <Hero
-        bannerImg={bannerImg}
-        title="<span>Find Rest &</span> <span>Relaxation</span>"
-      />
+    <Layout
+      bannerImg={bannerImg}
+      title="<span>Find Rest &</span> <span>Relaxation</span>">
       <Intro />
 
       <div className="margin-top">
@@ -55,7 +53,7 @@ const Wellness = () => {
         bgColor="--secondary-300"
         textColor="--light-color"
       />
-    </>
+    </Layout>
   );
 };
 

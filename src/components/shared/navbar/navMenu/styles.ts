@@ -9,8 +9,38 @@ export const NavWrapper = styled.div`
   right: 0%;
   width: 0%;
   height: 100vh;
-  z-index: 10000;
+  z-index: 10000000;
   background-color: var(--secondary-400);
+`;
+
+export const CloseMenu = styled.div`
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  padding-top: 1rem;
+
+  span {
+    color: var(--light-color);
+    cursor: pointer;
+
+    &:first-child {
+      svg {
+        vertical-align: middle;
+
+        height: 3rem;
+        width: 3rem;
+        padding: 0.7rem;
+        border-radius: 50%;
+        border: 2px solid;
+      }
+    }
+
+    &:last-child {
+      font-weight: 600;
+      padding-left: 10px;
+    }
+  }
 `;
 
 export const Grid = styled.div`

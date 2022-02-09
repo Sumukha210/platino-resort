@@ -3,21 +3,36 @@ import { RiMenu2Fill } from "react-icons/ri";
 import { BsChevronRight } from "react-icons/bs";
 import { BookNowBtn, Logo, Menu, Nav } from "./navbarStyles";
 import NavMenu from "./navMenu";
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import { useNavbarMenuAnimation } from "./navMenu/animations";
 import { useRouter } from "next/router";
-import { AiOutlineClose } from "react-icons/ai";
+import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [firstTime, setFirstTime] = useState(true);
   const wrapperRef = useRef(null);
+  const navRef = useRef(null);
   const children = gsap.utils.selector(wrapperRef);
   const router = useRouter();
+  gsap.registerPlugin(ScrollTrigger);
 
   const tl = useRef<gsap.core.Timeline>();
 
   useNavbarMenuAnimation({ firstTime, setFirstTime, children, menuOpen, tl });
+
+  useIsomorphicLayoutEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#appLayout",
+      start() {
+        return "80px bottom";
+      },
+      pin: "#hero",
+      pinSpacing: false,
+      toggleClass: { className: "active", targets: navRef.current },
+    });
+  }, []);
 
   const handleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -31,12 +46,12 @@ const Navbar = () => {
     <div ref={wrapperRef}>
       <NavMenu closeMenu={closeMenu} />
 
-      <Nav>
+      <Nav ref={navRef}>
         <div className="custom-container">
           <div className="navbar__menu">
             <Menu className="menu" onClick={handleMenu}>
-              <span className={`${menuOpen ? "showCloseIcon" : ""}`}>
-                {menuOpen ? <AiOutlineClose /> : <RiMenu2Fill />}
+              <span>
+                <RiMenu2Fill />
               </span>
               <span>Menu</span>
             </Menu>

@@ -28,7 +28,7 @@ const useAnimaton = () => {
         children(".right .caption"),
         children(".right .title"),
         children(".right .sub-title"),
-        children(".right .options .heading-5"),
+        children(".right .options"),
         children(".right .btnContainer"),
       ],
     });

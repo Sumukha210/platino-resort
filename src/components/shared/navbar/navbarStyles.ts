@@ -7,6 +7,34 @@ export const Nav = styled.nav`
   width: 100%;
   z-index: 10000;
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: var(--light-color);
+    height: 100%;
+    z-index: -1;
+    transform: translateY(-120%);
+    transition: transform 0.8s ease-in-out;
+  }
+
+  &.active {
+    .menu span,
+    .logo span,
+    .bookNow > span {
+      color: var(--dark-color);
+      transition: color 0.8s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      transform: translateY(0%);
+      transition: all 0.8s ease-in-out;
+    }
+  }
+
   @media (max-width: 991.98px) {
     padding: 20px 0;
   }
@@ -17,26 +45,19 @@ export const Nav = styled.nav`
     align-items: center;
     color: var(--light-color);
     cursor: pointer;
+    padding-top: 8px;
+    padding-bottom: 1rem;
 
     svg {
       height: 24px;
       width: 24px;
     }
 
-    .showCloseIcon {
-      svg {
-        height: 3rem;
-        width: 3rem;
-        border: 1px solid;
-        border-radius: 50%;
-        padding: 0.6rem;
-      }
-    }
-
     .menu span,
     .logo span,
     .bookNow > span {
       cursor: pointer;
+      transition: color 0.8s ease-in-out;
     }
 
     .menu span:last-child,
