@@ -1,25 +1,26 @@
-export const emailProps = {
-  required: "This is required",
-  pattern: {
-    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-    message: "Invalid email address",
-  },
-};
+import { formGroupInfoTypes, Inputs } from "./contactForm/types";
+import { emailProps, nameProps, subjectProps } from "@/utils/inputFieldProps";
+import { UseFormRegister } from "react-hook-form";
 
-export const nameProps = {
-  required: "This is required",
-  minLength: { value: 3, message: "Must contains at least 3 characters" },
-  maxLength: {
-    value: 15,
-    message: "Must not contains more then 15 characters",
-  },
-};
-
-export const subjectProps = {
-  required: "This is required",
-  minLength: { value: 6, message: "Must contains at least 6 characters" },
-  maxLength: {
-    value: 40,
-    message: "Must not contains more then 40 characters",
-  },
+export const formGroupInfoFun = (
+  register: UseFormRegister<Inputs>
+): formGroupInfoTypes[] => {
+  return [
+    {
+      title: "name",
+      placeholder: "Name",
+      options: register("name", { ...nameProps }),
+    },
+    {
+      title: "email",
+      placeholder: "Email Id",
+      options: register("email", { ...emailProps }),
+    },
+    {
+      title: "subject",
+      placeholder: "Subject",
+      options: register("subject", { ...subjectProps }),
+    },
+    { title: "message", placeholder: "Message", options: register("message") },
+  ];
 };
