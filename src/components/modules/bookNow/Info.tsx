@@ -12,14 +12,12 @@ const Info = () => {
           <div className="col-md-11 col-lg-8">
             <div className="content">
               <h4 className="heading-3 bold heading">
-                Are you ready <br /> to enjoy with us ?
+                Your holiday at Platino
               </h4>
               <p className="sub-title-2 subtitle">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Possimus, distinctio laboriosam quibusdam doloribus officiis
-                nostrum animi voluptate mollitia, architecto, voluptatum dolores
-                at accusantium laborum voluptatem nemo reprehenderit in est
-                enim!
+                Would you like to experience Platino unique atmosphere up close?
+                Book your holiday in Malnad now and enjoy days relaxing in
+                largely untouched nature.
               </p>
               <Button
                 onClickHandler={() => router.push("/book-now")}

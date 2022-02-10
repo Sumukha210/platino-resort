@@ -19,10 +19,17 @@ export const CloseMenu = styled.div`
   left: 0%;
   width: 100%;
   padding-top: 1rem;
+  z-index: 10;
+
+  .custom-container {
+    & > div {
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
 
   span {
     color: var(--light-color);
-    cursor: pointer;
 
     &:first-child {
       svg {

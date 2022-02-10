@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   left: 0%;
   width: 100%;
   z-index: 10000;
+  padding: 0px !important;
 
   &::after {
     content: "";

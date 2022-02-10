@@ -40,6 +40,7 @@ export const useAboutIntroAnimation = () => {
         router.pathname === "/" && childrenEle(".btnContainer"),
       ],
       trigger: childrenEle(".header"),
+      start: "top 60%",
     });
   }, []);
 

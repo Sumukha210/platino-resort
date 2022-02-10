@@ -3,16 +3,18 @@ import { gsap } from "gsap";
 interface scrollingTextAnimationTypes {
   trigger: gsap.DOMTarget | undefined;
   targets: gsap.TweenTarget;
+  start?: string;
 }
 
 export const scrollingTextAnimation = ({
   trigger,
   targets,
+  start = "top center",
 }: scrollingTextAnimationTypes) => {
   gsap.from(targets, {
     scrollTrigger: {
       trigger,
-      start: "top center",
+      start,
     },
     y: 80,
     duration: 0.9,

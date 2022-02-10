@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import NextImg from "next/image";
-import { gsap } from "gsap";
-import useLayoutEffect from "@/utils/useLayoutEffect";
 import { Wrapper } from "./styles";
 import drinkMenuImg from "@/assets/images/drinks.jpg";
 import desertMenuImg from "@/assets/images/dessert.jpg";
 import pizzaMenuImg from "@/assets/images/pizza.jpg";
 import dinnerMenuImg from "@/assets/images/dinner.jpg";
 import happyHourMenuImg from "@/assets/images/wine.jpg";
+import DOMPurify from "isomorphic-dompurify";
+import useAnimation from "@/module/facilities/useAnimation";
 
 interface menuNamesTypes {
   name: string;
@@ -23,30 +23,10 @@ const menuNames: menuNamesTypes[] = [
 ];
 
 const Menu = () => {
-  const WrapperRef = useRef(null);
-  const children = gsap.utils.selector(WrapperRef);
-
-  useLayoutEffect(() => {
-    gsap.utils.toArray(children(".card")).forEach((item: any) => {
-      gsap.fromTo(
-        item,
-        {
-          y: 0,
-        },
-        {
-          repeat: -1,
-          duration: gsap.utils.random(10, 15),
-          ease: "Power4.easeInOut",
-          y: gsap.utils.random(-40, -65),
-          yoyo: true,
-          yoyoEase: "none",
-        }
-      );
-    });
-  }, []);
+  const [wrapperRef] = useAnimation();
 
   return (
-    <Wrapper ref={WrapperRef} className="margin-top">
+    <Wrapper ref={wrapperRef} className="margin-top">
       <div className="imgcustom-container">
         {menuNames.map(({ name, imgSrc }, num) => (
           <div className="card" key={num}>
@@ -57,7 +37,9 @@ const Menu = () => {
             <div className="card__body">
               <h4
                 className="heading-4"
-                dangerouslySetInnerHTML={{ __html: name }}></h4>
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(name),
+                }}></h4>
             </div>
           </div>
         ))}

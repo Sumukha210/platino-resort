@@ -19,10 +19,12 @@ const NavMenu: React.FC<navMenuType> = ({ closeMenu }) => {
     <NavWrapper id="navMenu">
       <CloseMenu id="closeNavMenu">
         <div className="custom-container">
-          <span>
-            <AiOutlineClose onClick={() => closeMenu()} />
-          </span>
-          <span className="sub-title-2">Close Menu</span>
+          <div onClick={() => closeMenu()}>
+            <span>
+              <AiOutlineClose />
+            </span>
+            <span className="sub-title-2">Close Menu</span>
+          </div>
         </div>
       </CloseMenu>
 
