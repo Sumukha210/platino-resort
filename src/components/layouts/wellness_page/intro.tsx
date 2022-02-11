@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";
 

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { gsap } from "gsap";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";
 
 const useAnimaton = () => {

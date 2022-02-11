@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Info from "./Info";
 import Slider from "./slider";
 import { sliderImagesType } from "./types";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 

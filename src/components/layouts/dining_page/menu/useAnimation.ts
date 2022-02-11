@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 
 const useAnimation = () => {
   const WrapperRef = useRef(null);

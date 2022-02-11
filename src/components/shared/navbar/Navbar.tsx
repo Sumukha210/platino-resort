@@ -6,7 +6,7 @@ import NavMenu from "./navMenu";
 import { gsap } from "gsap";
 import { useNavbarMenuAnimation } from "./navMenu/animations";
 import { useRouter } from "next/router";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const Navbar = () => {

@@ -5,7 +5,7 @@ import spaImg from "@/assets/images/spaImg.jpg";
 import fitnessImg from "@/assets/images/yoga.jpg";
 import indoorPoolImg from "@/assets/images/indoor-pool.jpg";
 import { gsap } from "gsap";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { Wrapper } from "./sliderStyles";
 import { animationFun } from "./utils";
 

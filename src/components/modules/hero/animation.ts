@@ -1,5 +1,5 @@
 import { gsap } from "gsap/dist/gsap";
-import useLayoutEffect from "@/utils/useLayoutEffect";
+import useLayoutEffect from "@/customHook/useLayoutEffect";
 
 export const useHeroAnimation = (
   tl: React.MutableRefObject<gsap.core.Timeline | undefined>,

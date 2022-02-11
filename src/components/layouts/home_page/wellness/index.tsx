@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import styled from "styled-components";
 import Slider from "./slider";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { gsap } from "gsap/dist/gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";

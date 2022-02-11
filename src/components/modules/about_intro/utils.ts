@@ -1,5 +1,5 @@
 import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";
-import useIsomorphicLayoutEffect from "@/utils/useLayoutEffect";
+import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import { gsap } from "gsap";
