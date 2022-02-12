@@ -1,16 +1,28 @@
 import React, { useRef, useState } from "react";
-import { CloseMenu, Grid, NavWrapper, PersonalInfoBlock } from "./styles";
+import {
+  CloseMenu,
+  Grid,
+  NavWrapper,
+  PersonalInfoBlock,
+  RightSide,
+} from "./styles";
 import { gsap } from "gsap";
 import PersonalInfo from "@/layout/contact_page/address/PersonalInfo";
-import RightSideSection from "./RightSideSection";
+// import RightSideSection from "./RightSideSection";
 import LeftSideSection from "./LeftSideSection";
 import { AiOutlineClose } from "react-icons/ai";
+import dynamic from "next/dynamic";
 
 interface navMenuType {
   closeMenu: () => void;
+  isMenuOpen: boolean;
 }
 
-const NavMenu: React.FC<navMenuType> = ({ closeMenu }) => {
+const DynamicRightSideSection = dynamic(() => import("./RightSideSection"), {
+  loading: () => <p>Loading...</p>,
+});
+
+const NavMenu: React.FC<navMenuType> = ({ closeMenu, isMenuOpen }) => {
   const [currentEleNum, setCurrentEleNum] = useState<number>(0);
   const rightSideRef = useRef(null);
   const childrenEle = gsap.utils.selector(rightSideRef);
@@ -36,10 +48,11 @@ const NavMenu: React.FC<navMenuType> = ({ closeMenu }) => {
           setCurrentEleNum={setCurrentEleNum}
         />
 
-        <RightSideSection
-          rightSideRef={rightSideRef}
-          currentEleNum={currentEleNum}
-        />
+        <RightSide ref={rightSideRef}>
+          {isMenuOpen && window.innerWidth > 768 && (
+            <DynamicRightSideSection currentEleNum={currentEleNum} />
+          )}
+        </RightSide>
       </Grid>
 
       <PersonalInfoBlock className="personalBlock">

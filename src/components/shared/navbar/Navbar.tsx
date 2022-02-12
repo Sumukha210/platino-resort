@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <div ref={wrapperRef}>
-      <NavMenu closeMenu={closeMenu} />
+      <NavMenu closeMenu={closeMenu} isMenuOpen={menuOpen} />
 
       <Nav ref={navRef}>
         <div className="custom-container">
