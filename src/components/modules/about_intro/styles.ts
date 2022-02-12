@@ -63,16 +63,16 @@ export const Wrapper = styled.div`
   .btnContainer {
     text-align: center;
   }
+`;
 
-  .videocustom-container {
-    height: 650px;
-    width: 100vw;
-    margin-top: 80px;
+export const VideoContainer = styled.div`
+  height: 650px;
+  width: 100vw;
+  margin-top: 80px;
 
-    video {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+  video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 `;

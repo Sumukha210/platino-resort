@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Button from "@/element/Button";
 import dynamic from "next/dynamic";
 import { BsArrowRight } from "react-icons/bs";
-import { Wrapper } from "./styles";
+import { VideoContainer, Wrapper } from "./styles";
 import { aboutIntroData, useAboutIntroAnimation } from "./utils";
+import { useOnScreen } from "@/customHook/useOnscreen";
 
 const DynamicVideoComponent = dynamic(() => import("./VideoContainer"), {
-  loading: () => <p>Loading....</p>,
+  loading: () => <p>Loading...</p>,
 });
 
 const AboutIntro = () => {
   const { caption, title, subtitle, para } = aboutIntroData;
   const { wrapperRef, router } = useAboutIntroAnimation();
+  const videoRef = useRef(null);
+  const isIntersecting = useOnScreen(videoRef, "200px");
+  console.log("is intersecting", isIntersecting);
 
   return (
     <Wrapper className="margin-top" ref={wrapperRef}>
@@ -41,9 +45,9 @@ const AboutIntro = () => {
         )}
       </div>
 
-      {/* <VideoContainer /> */}
-
-      <DynamicVideoComponent />
+      <VideoContainer ref={videoRef}>
+        {isIntersecting && <DynamicVideoComponent />}
+      </VideoContainer>
     </Wrapper>
   );
 };

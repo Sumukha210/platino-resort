@@ -1,25 +1,31 @@
-import React, { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, useState } from "react";
+import useIsomorphicLayoutEffect from "./useLayoutEffect";
 
-export const useOnScreen = <T extends Element>(
-  ref: MutableRefObject<T>,
+export const useOnScreen = (
+  ref: MutableRefObject<null>,
   rootMargin: string = "0px"
 ): boolean => {
   const [isIntersecting, setIntersecting] = useState<boolean>(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
+  useIsomorphicLayoutEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      console.log("entries", entries);
+      entries.forEach(
+        entry => {
+          if (entry.isIntersecting) {
+            setIntersecting(true);
+          }
+        },
+        { rootMargin }
+      );
+    });
+
     if (ref.current) {
       observer.observe(ref.current);
     }
     return () => {
-      observer.unobserve(ref.current);
+      ref.current && observer.unobserve(ref.current);
     };
   }, []);
+
   return isIntersecting;
 };
