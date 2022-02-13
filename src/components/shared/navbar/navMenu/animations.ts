@@ -1,6 +1,6 @@
-import useLayoutEffect from "@/customHook/useLayoutEffect";
 import { gsap } from "gsap/dist/gsap";
 import { useRouter } from "next/router";
+import useLayoutEffect from "@/customHook/useLayoutEffect";
 
 interface navbarMenuAnimationProps {
   firstTime: boolean;
