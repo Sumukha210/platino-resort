@@ -26,7 +26,7 @@ const Admin = () => {
           />
         </Container>
 
-        <AuthenticationPage />
+        <AuthenticationPage showLoginPage={showLoginPage} />
       </div>
     </Wrapper>
   );

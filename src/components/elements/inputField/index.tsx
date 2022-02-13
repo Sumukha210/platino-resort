@@ -8,6 +8,7 @@ const InputField: React.FC<inputFieldProps> = ({
   label,
   showLabal = false,
   inputType = "textInput",
+  placeholder,
 }) => {
   return (
     <Group>
@@ -23,7 +24,11 @@ const InputField: React.FC<inputFieldProps> = ({
           cols={30}
           rows={10}></TextArea>
       ) : (
-        <Input placeholder={label} {...options} type={inputType} />
+        <Input
+          placeholder={placeholder ? placeholder : label}
+          {...options}
+          type={inputType}
+        />
       )}
       <ErrorText className="sub-title-4">
         {errors[inputName] && errors[inputName].message}

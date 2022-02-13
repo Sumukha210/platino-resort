@@ -11,9 +11,11 @@ export const Input = styled.input`
   padding-left: 16px;
   border: 1px solid var(--secondary-200);
   outline: none;
+  font-family: var(--primary-font);
+  font-weight: 500;
 
   &::placeholder {
-    opacity: 0.9;
+    opacity: 0.95;
   }
 
   @media (max-width: 991.98px) {
@@ -40,13 +42,14 @@ export const TextArea = styled.textarea`
 
 export const Label = styled.label`
   display: block;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 8px;
 `;
 
 export const ErrorText = styled.h6`
-  color: #f57979;
+  color: red;
   margin-top: 6px;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
+  opacity: 0.7;
 `;

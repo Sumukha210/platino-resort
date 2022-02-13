@@ -7,4 +7,5 @@ export interface inputFieldProps {
   label: string;
   showLabal?: boolean;
   inputType?: "text" | "textArea" | "password";
+  placeholder?: string;
 }
