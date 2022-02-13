@@ -1,9 +1,9 @@
-import Button from "@/element/Button";
+import Button from "@/element/button";
+import InputField from "@/element/inputField";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import { formGroupInfoFun } from "../utils";
-import FormGroup from "./FormGroup";
 import { Inputs } from "./types";
 
 const FormField = () => {
@@ -19,12 +19,13 @@ const FormField = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {formGroupInfoFun(register).map(
           ({ title, placeholder, options }, num) => (
-            <FormGroup
+            <InputField
               key={num}
               errors={errors}
-              title={title}
-              placeholder={placeholder}
+              inputName={title}
+              label={placeholder}
               options={options}
+              inputType={title === "subject" ? "textArea" : "text"}
             />
           )
         )}

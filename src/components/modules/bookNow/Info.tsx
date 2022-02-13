@@ -1,4 +1,4 @@
-import Button from "@/element/Button";
+import Button from "@/element/button";
 import { useRouter } from "next/router";
 import React from "react";
 

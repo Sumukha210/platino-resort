@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Button from "@/element/Button";
+import Button from "@/element/button";
 import dynamic from "next/dynamic";
 import { BsArrowRight } from "react-icons/bs";
 import { VideoContainer, Wrapper } from "./styles";

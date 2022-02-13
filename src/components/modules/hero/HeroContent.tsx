@@ -3,7 +3,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { Content } from "./styles";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { heroContentProps } from "./types";
-import Button from "@/element/Button";
+import Button from "@/element/button";
 import Features from "./Features";
 
 const HeroContent: React.FC<heroContentProps> = ({ forFrontPage, title }) => {
