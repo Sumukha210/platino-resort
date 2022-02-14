@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuthenticationPage from "@/layout/admin_page/authentication_page";
+import AuthenticationPage from "@/layout/admin_page/registerLoginForm";
 import { BsArrowRight } from "react-icons/bs";
 import styled from "styled-components";
 import Button from "@/element/button";
