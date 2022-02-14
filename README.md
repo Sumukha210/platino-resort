@@ -11,6 +11,7 @@
   ### `npx prisma init`
 
 - To migrate :-
+  (after creating data model)
 
   ### `npx prisma migrate dev --preview-feature`
 
