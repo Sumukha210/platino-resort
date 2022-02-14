@@ -8,16 +8,18 @@ interface contactusDetailsProps {
 
 const ContactusDetails: React.FC<contactusDetailsProps> = ({ details }) => {
   return (
-    <div>
-      {details.length &&
-        details.map(({ name, email, subject, message, id }) => (
-          <div key={id}>
-            <h2>{name}</h2>
-            <h2>{email}</h2>
-            <h2>{subject}</h2>
-            <h2>{message}</h2>
-          </div>
-        ))}
+    <div className="custom-container component-inner-gap">
+      <div className="row">
+        {details.length &&
+          details.map(({ name, email, subject, message, id }) => (
+            <div className="col-md-6" key={id} style={{ marginBottom: "3rem" }}>
+              <h3>Name:-{name}</h3>
+              <h5>Email:-{email}</h5>
+              <h3>Subject:- {subject}</h3>
+              <p>{message}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
