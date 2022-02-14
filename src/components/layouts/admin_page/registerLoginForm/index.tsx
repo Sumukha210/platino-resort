@@ -7,6 +7,7 @@ import Header from "./Header";
 import { Inputs, registerLoginProps } from "./types";
 import { inputFieldData } from "./util";
 import axios from "axios";
+import ResponseText from "@/element/ResponseText";
 
 interface responseType {
   message: string;
@@ -44,14 +45,12 @@ const AuthenticationPage: React.FC<registerLoginProps> = ({
               <InputField {...options} key={index} />
             ))}
 
-            <h4
-              className="sub-title-3"
-              style={{
-                color:
-                  response?.status === "fail" ? "red" : "var(--primary-300)",
-              }}>
-              {response?.message}
-            </h4>
+            {response && (
+              <ResponseText
+                status={response?.status}
+                message={response?.message}
+              />
+            )}
 
             <Button onClickHandler={() => {}} name="Submit" submitType={true} />
           </form>
