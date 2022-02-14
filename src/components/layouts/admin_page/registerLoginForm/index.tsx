@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@/element/button";
 import InputField from "@/element/inputField";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -6,12 +6,32 @@ import { Wrapper, Container } from "./styles";
 import Header from "./Header";
 import { Inputs, registerLoginProps } from "./types";
 import { inputFieldData } from "./util";
+import axios from "axios";
+
+interface responseType {
+  message: string;
+  status: "success" | "fail";
+}
 
 const AuthenticationPage: React.FC<registerLoginProps> = ({
   showLoginPage,
 }) => {
+  const [response, setResponse] = useState<responseType | null>(null);
   const { register, handleSubmit, formState } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => console.log("data", data);
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    try {
+      const res = await axios.post("api/admin/register", { email, password });
+      console.log("Response", res.data);
+      const { status, message } = res.data;
+      if (message === "P2002") {
+        setResponse({ message: "Email is already exists", status: "fail" });
+      } else {
+        setResponse({ message, status });
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
   return (
     <Wrapper className="row align-items-center justify-content-center">
@@ -23,6 +43,15 @@ const AuthenticationPage: React.FC<registerLoginProps> = ({
             {inputFieldData({ register, formState }).map((options, index) => (
               <InputField {...options} key={index} />
             ))}
+
+            <h4
+              className="sub-title-3"
+              style={{
+                color:
+                  response?.status === "fail" ? "red" : "var(--primary-300)",
+              }}>
+              {response?.message}
+            </h4>
 
             <Button onClickHandler={() => {}} name="Submit" submitType={true} />
           </form>

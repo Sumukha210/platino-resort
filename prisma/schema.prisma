@@ -18,3 +18,9 @@ model Contactus {
   subject String
   message String @default("")
 }
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String
+}

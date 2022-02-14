@@ -22,7 +22,6 @@ const FormField = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
     const res = await axios.post("/api/admin/contactusDetails", { data });
-    console.log("response", res.data);
     if (res.data?.status) {
       setResonponse({ message: res.data.message, status: "success" });
     } else {
