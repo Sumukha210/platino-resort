@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  // output   = "./prisma/client"
 }
 
 datasource db {
@@ -11,7 +12,8 @@ datasource db {
 }
 
 model Contactus {
-  name    String @id @default(cuid())
+  id      String @id @default(cuid())
+  name    String
   email   String
   subject String
   message String @default("")
