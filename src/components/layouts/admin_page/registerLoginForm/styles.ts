@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   background: #fff;
-  box-shadow: 0px 0px 3px silver;
+  box-shadow: 0px 0px 2px silver;
   padding: 3rem;
 
   input {

@@ -8,8 +8,15 @@ const Button = styled.button<CustomBtnProps>`
   font-size: 16px;
   background: transparent;
   position: relative;
-  cursor: pointer;
   z-index: 2;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
 
   span {
     &:not(:first-child) {

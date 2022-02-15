@@ -7,8 +7,9 @@ const Button: React.FC<btnType> = ({
   Icon,
   isDarkBtn = true,
   submitType = false,
-  onClickHandler,
+  onClickHandler = () => {},
   textBtn = false,
+  disabled = false,
 }) => {
   const btnChildren = (
     <>
@@ -29,6 +30,7 @@ const Button: React.FC<btnType> = ({
         </TextBtn>
       ) : (
         <StandardBtn
+          disabled={disabled}
           isDarkBtn={isDarkBtn}
           type={submitType ? "submit" : "button"}
           onClick={onClickHandler}>

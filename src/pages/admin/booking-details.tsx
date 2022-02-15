@@ -5,3 +5,4 @@ const BookingDetails = () => {
 };
 
 export default BookingDetails;
+BookingDetails.requireAuth = true;

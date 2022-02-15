@@ -5,3 +5,5 @@ const UserDetails = () => {
 };
 
 export default UserDetails;
+
+UserDetails.requireAuth = true;

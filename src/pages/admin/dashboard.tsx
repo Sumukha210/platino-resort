@@ -5,3 +5,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+Dashboard.requireAuth = true;

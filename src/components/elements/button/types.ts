@@ -9,5 +9,6 @@ export interface btnType extends CustomBtnProps {
   name: string;
   Icon?: IconType;
   submitType?: boolean;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
+  disabled?: boolean;
 }

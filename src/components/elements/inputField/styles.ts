@@ -9,13 +9,14 @@ export const Input = styled.input`
   width: 80%;
   color: var(--dark-color);
   padding-left: 16px;
-  border: 1px solid var(--secondary-200);
+  border: 1.5px solid var(--secondary-200);
   outline: none;
   font-family: var(--primary-font);
   font-weight: 500;
 
   &::placeholder {
-    opacity: 0.95;
+    opacity: 0.55;
+    letter-spacing: 2px;
   }
 
   @media (max-width: 991.98px) {

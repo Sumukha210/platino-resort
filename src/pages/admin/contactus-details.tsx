@@ -2,16 +2,12 @@ import React from "react";
 import { client } from "@/utils/prismaClient";
 import { Contactus } from "@prisma/client";
 
-interface contactusDetailsProps {
-  details: Contactus[];
-}
-
-const ContactusDetails: React.FC<contactusDetailsProps> = ({ details }) => {
+const ContactusDetails = ({ details }: any) => {
   return (
     <div className="custom-container component-inner-gap">
       <div className="row">
         {details.length &&
-          details.map(({ name, email, subject, message, id }) => (
+          details.map(({ name, email, subject, message, id }: Contactus) => (
             <div className="col-md-6" key={id} style={{ marginBottom: "3rem" }}>
               <h3>Name:-{name}</h3>
               <h5>Email:-{email}</h5>
@@ -25,6 +21,8 @@ const ContactusDetails: React.FC<contactusDetailsProps> = ({ details }) => {
 };
 
 export default ContactusDetails;
+
+ContactusDetails.requireAuth = true;
 
 export async function getServerSideProps() {
   const details: Contactus[] = await client.contactus.findMany();
