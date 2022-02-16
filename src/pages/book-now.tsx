@@ -4,6 +4,12 @@ import React, { useState } from "react";
 
 const BookNow = () => {
   const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const handleSignIn = async () => {
+    const res = await signIn("email", { email, redirect: false });
+    console.log("res", res);
+  };
 
   return (
     <>
@@ -17,12 +23,7 @@ const BookNow = () => {
             placeholder="enter your email"
             onChange={e => setEmail(e.target.value)}
           />
-          {email && (
-            <Button
-              name="sign in"
-              onClickHandler={() => signIn("email", { email })}
-            />
-          )}
+          {email && <Button name="sign in" onClickHandler={handleSignIn} />}
         </div>
       </div>
     </>

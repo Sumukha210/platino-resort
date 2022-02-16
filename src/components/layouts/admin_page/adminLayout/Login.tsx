@@ -7,6 +7,8 @@ import { Container, Wrapper } from "./styles";
 
 const Login: React.FC = () => {
   const [token, setToken] = useState<string | undefined>();
+  const [disable, setDisable] = useState(false);
+
   const getToken = async () => await getCsrfToken();
   getToken().then(res => {
     setToken(res);
@@ -20,11 +22,18 @@ const Login: React.FC = () => {
         </div>
         <Container>
           {token ? (
-            <form method="post" action="/api/auth/signin/email">
+            <form
+              method="post"
+              action="/api/auth/signin/email"
+              onSubmit={() => setDisable(true)}>
               <input name="csrfToken" type="hidden" defaultValue={token} />
               <Label>Email address</Label>
               <Input type="email" required id="email" name="email" />
-              <Button name="Sign in with Email" submitType={true} />
+              <Button
+                name="Sign in with Email"
+                disabled={disable}
+                submitType={true}
+              />
             </form>
           ) : (
             <LoadingSpinner />

@@ -21,6 +21,8 @@ export default NextAuth({
     signIn: "/admin",
   },
 
+  secret: process.env.SECRET,
+
   session: {
     strategy: "jwt",
   },
