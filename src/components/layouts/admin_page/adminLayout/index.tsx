@@ -6,9 +6,8 @@ import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import styled from "styled-components";
 import Login from "./Login";
-import { AdminProps } from "./types";
 
-const AdminLayout: React.FC<AdminProps> = ({ csrfToken }) => {
+const AdminLayout: React.FC = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
 
@@ -17,8 +16,7 @@ const AdminLayout: React.FC<AdminProps> = ({ csrfToken }) => {
       return <LoadingSpinner />;
     }
 
-    if (!session || status === "unauthenticated")
-      return <Login csrfToken={csrfToken} />;
+    if (!session || status === "unauthenticated") return <Login />;
 
     return <></>;
   };

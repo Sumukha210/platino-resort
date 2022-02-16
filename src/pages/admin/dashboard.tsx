@@ -4,6 +4,7 @@ import { GetServerSidePropsContext } from "next";
 import Button from "@/element/button";
 
 import { Session } from "next-auth";
+import LoadingSpinner from "@/element/loadingSpinner";
 
 interface dashboardProps {
   session: Session | null;
@@ -13,7 +14,7 @@ const Dashboard = ({ session }: dashboardProps) => {
   if (!session) {
     return (
       <>
-        <h1>Loading....</h1>
+        <LoadingSpinner />
       </>
     );
   }
