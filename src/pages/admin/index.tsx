@@ -1,43 +1,26 @@
-import React, { useState } from "react";
-import AuthenticationPage from "@/layout/admin_page/registerLoginForm";
-import { BsArrowRight } from "react-icons/bs";
-import styled from "styled-components";
-import Button from "@/element/button";
+import React from "react";
 import { useRouter } from "next/router";
+import { useSession, getCsrfToken } from "next-auth/react";
+import AdminLayout from "@/layout/admin_page/adminLayout";
+import { GetServerSidePropsContext } from "next";
+import { AdminProps } from "@/layout/admin_page/adminLayout/types";
 
-const Admin = () => {
+const Admin: React.FC<AdminProps> = ({ csrfToken }) => {
   const router = useRouter();
-  const [showLoginPage, setShowLoginPage] = useState(false);
+  const { data: session, status } = useSession();
 
-  return (
-    <Wrapper className="component-inner-gap">
-      <div className="custom-container">
-        <Container>
-          <Button
-            textBtn={true}
-            onClickHandler={() => router.replace("/")}
-            name="back to home"
-            Icon={BsArrowRight}
-          />
+  if (status === "authenticated" || session) {
+    router.replace("/admin/dashboard");
+  }
 
-          <Button
-            onClickHandler={() => setShowLoginPage(!showLoginPage)}
-            name={showLoginPage ? "Login" : "Register"}
-          />
-        </Container>
-
-        <AuthenticationPage showLoginPage={showLoginPage} />
-      </div>
-    </Wrapper>
-  );
+  return <AdminLayout csrfToken={csrfToken} />;
 };
 
 export default Admin;
 
-const Wrapper = styled.div``;
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const csrfToken = await getCsrfToken(context);
+  return {
+    props: { csrfToken },
+  };
+}

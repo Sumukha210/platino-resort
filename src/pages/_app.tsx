@@ -1,11 +1,13 @@
-import type { AppProps } from "next/app";
 import "../styles/style.scss";
+import { SessionProvider } from "next-auth/react";
+import { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: any) {
-  console.log("component", Component.requireAuth);
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <SessionProvider session={pageProps.session} refetchInterval={0}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 }
