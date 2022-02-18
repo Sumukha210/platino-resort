@@ -57,3 +57,11 @@
 <br>
 
 - ### _After that create `tsconfig.jest.json` and `jest.config.js` in the root directory. Also create `jest.setup.js` in the `src` folder_
+
+<br>
+
+- ### _Then do, and follow the steps similar to video_
+
+  `npx eslint --init`
+
+- ### _check shareable configuration [eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest)_
