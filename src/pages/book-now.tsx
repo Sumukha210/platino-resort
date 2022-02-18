@@ -1,33 +1,13 @@
-import Button from "@/element/button";
-import { signIn } from "next-auth/react";
-import React, { useState } from "react";
+import React from "react";
+import Layout from "@/shared/Layout";
+import bannerImg from "@/assets/images/about-md.jpg";
 
-const BookNow = () => {
-  const [email, setEmail] = useState("");
-  const [msg, setMsg] = useState("");
-
-  const handleSignIn = async () => {
-    const res = await signIn("email", { email, redirect: false });
-    console.log("res", res);
-  };
-
+const BookNowPage = () => {
   return (
-    <>
-      <div className="container component-inner-page margin-top">
-        <h1 className="heading-1">Book now page</h1>
-
-        <div className="component-inner-gap">
-          <input
-            type="text"
-            value={email}
-            placeholder="enter your email"
-            onChange={e => setEmail(e.target.value)}
-          />
-          {email && <Button name="sign in" onClickHandler={handleSignIn} />}
-        </div>
-      </div>
-    </>
+    <Layout
+      bannerImg={bannerImg}
+      title="<span>Book</span><span>your stay</span>"></Layout>
   );
 };
 
-export default BookNow;
+export default BookNowPage;
