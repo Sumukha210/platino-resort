@@ -4,6 +4,7 @@ export const Banner = styled.div`
   width: 100vw;
   height: calc(80vh + 150px);
   position: relative;
+  overflow: hidden;
 
   &::after {
     content: "";
