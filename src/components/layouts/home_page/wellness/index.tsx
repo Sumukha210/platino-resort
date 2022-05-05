@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import Slider from "./slider";
 import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { scrollingTextAnimation } from "@/utils/scrollingTextAnimation";
 

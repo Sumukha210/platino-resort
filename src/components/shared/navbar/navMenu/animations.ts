@@ -1,4 +1,4 @@
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import useLayoutEffect from "@/customHook/useLayoutEffect";
 

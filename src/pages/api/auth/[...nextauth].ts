@@ -1,35 +1,37 @@
-import NextAuth from "next-auth";
-import EmailProvider from "next-auth/providers/email";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+export {};
 
-const prisma = new PrismaClient();
+// import NextAuth from "next-auth";
+// import EmailProvider from "next-auth/providers/email";
+// import { PrismaAdapter } from "@next-auth/prisma-adapter";
+// import { PrismaClient } from "@prisma/client";
 
-// For more information on each option (and a full list of options) go to
-// https://next-auth.js.org/configuration/options
-export default NextAuth({
-  // https://next-auth.js.org/configuration/providers
-  adapter: PrismaAdapter(prisma),
-  providers: [
-    EmailProvider({
-      server: process.env.EMAIL_SERVER,
-      from: process.env.EMAIL_FROM,
-    }),
-  ],
+// const prisma = new PrismaClient();
 
-  pages: {
-    signIn: "/admin",
-  },
+// // For more information on each option (and a full list of options) go to
+// // https://next-auth.js.org/configuration/options
+// export default NextAuth({
+//   // https://next-auth.js.org/configuration/providers
+//   adapter: PrismaAdapter(prisma),
+//   providers: [
+//     EmailProvider({
+//       server: process.env.EMAIL_SERVER,
+//       from: process.env.EMAIL_FROM,
+//     }),
+//   ],
 
-  secret: process.env.SECRET,
+//   pages: {
+//     signIn: "/admin",
+//   },
 
-  session: {
-    strategy: "jwt",
-  },
+//   secret: process.env.SECRET,
 
-  theme: {
-    colorScheme: "light",
-  },
+//   session: {
+//     strategy: "jwt",
+//   },
 
-  debug: false,
-});
+//   theme: {
+//     colorScheme: "light",
+//   },
+
+//   debug: false,
+// });

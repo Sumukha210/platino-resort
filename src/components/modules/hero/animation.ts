@@ -1,4 +1,4 @@
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import useLayoutEffect from "@/customHook/useLayoutEffect";
 
 export const useHeroAnimation = (

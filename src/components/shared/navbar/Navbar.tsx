@@ -3,7 +3,7 @@ import { RiMenu2Fill } from "react-icons/ri";
 import { BsChevronRight } from "react-icons/bs";
 import { BookNowBtn, Logo, Menu, Nav } from "./navbarStyles";
 import NavMenu from "./navMenu";
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import { useNavbarMenuAnimation } from "./navMenu/animations";
 import { useRouter } from "next/router";
 import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { gsap } from "gsap/dist/gsap";
+import { gsap } from "gsap";
 import { useHeroAnimation } from "./animation";
 import { Banner, BannerImg } from "./styles";
 import NextImg from "next/image";
