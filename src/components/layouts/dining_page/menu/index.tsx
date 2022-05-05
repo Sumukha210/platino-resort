@@ -7,7 +7,7 @@ import pizzaMenuImg from "@/assets/images/pizza.jpg";
 import dinnerMenuImg from "@/assets/images/dinner.jpg";
 import happyHourMenuImg from "@/assets/images/wine.jpg";
 import DOMPurify from "isomorphic-dompurify";
-import useAnimation from "@/module/facilities/useAnimation";
+import useAnimation from "./useAnimation";
 
 interface menuNamesTypes {
   name: string;

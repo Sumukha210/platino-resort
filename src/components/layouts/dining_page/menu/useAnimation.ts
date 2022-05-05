@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
+import { gsap } from "gsap";
 
 const useAnimation = () => {
   const WrapperRef = useRef(null);
