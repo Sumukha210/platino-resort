@@ -18,14 +18,17 @@ const FormField = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
-    const res = await axios.post("/api/admin/contactusDetails", { data });
+    const res = await axios.post("/api/contactus", { data });
     if (res.data?.status) {
       setResonponse({ message: res.data.message, status: "success" });
+      reset();
     } else {
       setResonponse({ message: res.data.message, status: "fail" });
+      reset();
     }
   };
 
