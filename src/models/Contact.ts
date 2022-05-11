@@ -7,11 +7,11 @@ export interface IContact extends Document {
   message?: string;
 }
 
-const ContactSchema: Schema = new Schema(
+const ContactSchema: Schema = new Schema<IContact>(
   {
-    name: String,
-    email: String,
-    subject: String,
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    subject: { type: String, required: true },
     message: String,
   },
   { timestamps: true }

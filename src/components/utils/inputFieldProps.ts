@@ -40,3 +40,30 @@ export const phoneNumberProps = {
     message: "Invalid phone number",
   },
 };
+
+export const streetProps = {
+  required: "This is required",
+  minLength: { value: 3, message: "Must contains at least 3 characters" },
+  maxLength: {
+    value: 30,
+    message: "Must not contains more then 30 characters",
+  },
+};
+
+export const cityProps = {
+  required: "This is required",
+  minLength: { value: 2, message: "Must contains at least 2 characters" },
+  maxLength: {
+    value: 20,
+    message: "Must not contains more then 20 characters",
+  },
+};
+
+export const postCodeProps = {
+  required: "This is required",
+  minLength: { value: 4, message: "Must contains at least 4 characters" },
+  maxLength: {
+    value: 12,
+    message: "Must not contains more then 12 characters",
+  },
+};
