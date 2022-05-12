@@ -5,6 +5,7 @@ import Founders_And_Team from "@/layout/about_page/founders";
 import PresidentWords from "@/layout/about_page/PresidentWords";
 import OurPromises from "@/layout/about_page/OurPromises";
 import Layout from "@/shared/Layout";
+import BookNowSection from "@/shared/BookNowSection";
 
 const About = () => {
   return (
@@ -15,6 +16,7 @@ const About = () => {
       <Founders_And_Team />
       <PresidentWords />
       <OurPromises />
+      <BookNowSection />
     </Layout>
   );
 };

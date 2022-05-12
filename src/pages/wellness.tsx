@@ -16,6 +16,7 @@ import poolImg from "@/assets/images/pool.jpg";
 import swim1 from "@/assets/images/swim-1.jpg";
 import swim2 from "@/assets/images/swim-2.jpg";
 import Layout from "@/shared/Layout";
+import BookNowSection from "@/shared/BookNowSection";
 
 const Wellness = () => {
   return (
@@ -53,6 +54,7 @@ const Wellness = () => {
         bgColor="--secondary-300"
         textColor="--light-color"
       />
+      <BookNowSection />
     </Layout>
   );
 };

@@ -20,7 +20,7 @@ const Info = () => {
                 largely untouched nature.
               </p>
               <Button
-                onClickHandler={() => router.push("/book-now")}
+                onClickHandler={() => router.push("/booking")}
                 name="Book now"
                 isDarkBtn={false}
               />

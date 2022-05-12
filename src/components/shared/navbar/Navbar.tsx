@@ -63,7 +63,7 @@ const Navbar = () => {
 
             <BookNowBtn
               className="bookNow"
-              onClick={() => router.push("/book-now")}>
+              onClick={() => router.push("/booking")}>
               <span>
                 <span>Book</span>
                 <span>Now</span>

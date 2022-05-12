@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { AiFillFacebook, AiFillTwitterSquare } from "react-icons/ai";
-import { BsInstagram } from "react-icons/bs";
-import { ImYoutube } from "react-icons/im";
 
 const Footer = () => {
   return (
@@ -30,10 +27,27 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 575.98px) {
+      flex-direction: column;
+    }
+
     h6 {
       flex: 1;
       text-align: center;
       font-weight: 500;
+
+      &:nth-child(2) {
+        font-weight: bold;
+        color: var(--dark-color);
+      }
+
+      @media (max-width: 575.98px) {
+        margin-bottom: 10px;
+
+        &:nth-child(1) {
+          order: 1;
+        }
+      }
     }
   }
 `;

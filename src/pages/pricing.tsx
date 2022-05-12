@@ -3,6 +3,7 @@ import Layout from "@/shared/Layout";
 import pricingImg from "@/assets/images/about-md.jpg";
 import PriceTable from "@/layout/pricing_page/PriceTable";
 import styled from "styled-components";
+import BookNowSection from "@/shared/BookNowSection";
 
 const Pricing = () => {
   return (
@@ -10,6 +11,7 @@ const Pricing = () => {
       bannerImg={pricingImg}
       title="<span>Prices & </span><span>Rates</span>">
       <PriceTable />
+
       <Deposit>
         <div className="custom-container">
           <div className="row justify-content-center">
@@ -24,6 +26,8 @@ const Pricing = () => {
           </div>
         </div>
       </Deposit>
+
+      <BookNowSection />
     </Layout>
   );
 };

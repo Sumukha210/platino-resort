@@ -15,7 +15,6 @@ const AboutIntro = () => {
   const { wrapperRef, router } = useAboutIntroAnimation();
   const videoRef = useRef(null);
   const isIntersecting = useOnScreen(videoRef, "200px");
-  console.log("is intersecting", isIntersecting);
 
   return (
     <Wrapper className="margin-top" ref={wrapperRef}>
