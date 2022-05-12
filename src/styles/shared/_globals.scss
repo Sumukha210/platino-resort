@@ -28,6 +28,11 @@ body {
   margin-left: auto;
 }
 
+#appLayout {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 // p {
 //   margin-bottom: 0px;
 // }

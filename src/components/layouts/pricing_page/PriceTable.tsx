@@ -1,58 +1,70 @@
-import React from "react";
-import styled from "styled-components";
-
-interface tableDataTypes {
-  seasonTime:
-    | "low season"
-    | "off season"
-    | "high season"
-    | "christmas"
-    | "new year's eve";
-  week: number;
-  weekend: number;
-  "long weekend": number;
-}
+import React, { useEffect, useState } from "react";
+import { IPricing } from "src/pages/api/admin/pricing";
+import { fetchPricing, tableValues } from "./utils";
+import {
+  TableContainer,
+  TableContent,
+  TableHead,
+  Wrapper,
+} from "./prictTableStyles";
 
 const PriceTable = () => {
-  const tableData: tableDataTypes[] = [
-    {
-      seasonTime: "high season",
-      week: 21000,
-      weekend: 1000,
-      "long weekend": 33000,
-    },
-    {
-      seasonTime: "low season",
-      week: 11000,
-      weekend: 100,
-      "long weekend": 23000,
-    },
-    {
-      seasonTime: "off season",
-      week: 11659,
-      weekend: 940,
-      "long weekend": 23760,
-    },
-  ];
+  const [pricing, setPricing] = useState<IPricing[] | null>(null);
+
+  useEffect(() => {
+    fetchPricing(setPricing);
+  }, []);
+
+  const { dayType, seasons, sortedPricing } = tableValues(pricing);
 
   return (
     <Wrapper className="margin-top">
       <div className="custom-container">
         <div className="row justify-content-center">
           <div className="col-md-10">
+            <div className="header">
+              <h2 className="heading-3">Price Table</h2>
+            </div>
+
             <TableContainer>
-              <TableHead></TableHead>
+              <TableHead>
+                <div></div>
+                {dayType?.map(item => (
+                  <h3 key={item}>
+                    <span className="sub-title-1">{item}</span>{" "}
+                    <span className="sub-title-4">
+                      (
+                      {item === "Week"
+                        ? "Mon - Sun"
+                        : item === "Midweek"
+                        ? "Mon - Fri"
+                        : "Sat & Sun"}
+                      )
+                    </span>
+                  </h3>
+                ))}
+              </TableHead>
 
               <TableContent>
-                {tableData.map(({ seasonTime, weekend, week }, index) => (
-                  <div className="row" key={index}>
-                    <div className="col seasonTime">{seasonTime}</div>
-                    <div className="col">{week}</div>
-                    <div className="col">{weekend}</div>
-                  </div>
+                {seasons?.map(season => (
+                  <h3 key={season} className="sub-title-1 seasonName">
+                    {season}
+                  </h3>
+                ))}
+
+                {sortedPricing?.map((item, key) => (
+                  <h4 key={key} className="sub-title-3">
+                    Rs. {item?.price}
+                  </h4>
                 ))}
               </TableContent>
             </TableContainer>
+
+            <div className="footer">
+              <h5 className="sub-title-3">
+                * Price includes all the facilities like wellness,food etc...
+              </h5>
+            </div>
           </div>
         </div>
       </div>
@@ -61,11 +73,3 @@ const PriceTable = () => {
 };
 
 export default PriceTable;
-
-const Wrapper = styled.div``;
-
-const TableContainer = styled.div``;
-
-const TableHead = styled.div``;
-
-const TableContent = styled.div``;
