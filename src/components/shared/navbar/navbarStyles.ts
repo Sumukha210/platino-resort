@@ -135,6 +135,7 @@ export const BookNowBtn = styled.div`
 
   & > span:first-child {
     display: inline-block;
+    transition: all 0.2s cubic-bezier(0.42, 0, 0.17, 1.03) !important;
 
     span:first-child {
       margin-right: 6px;
