@@ -1,9 +1,9 @@
 import { IUserDetails } from "@/models/BookingDetails";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Overview from "./Overview";
-import { Container, Wrapper } from "./styles";
-import UserDetails from "./UserDetails";
+import Checkout from "./checkout";
+import { Container, Wrapper } from "./userDetails/styles";
+import UserDetails from "./userDetails";
 
 const BookingDetailsForm = () => {
   const { register, handleSubmit, formState, reset } = useForm<IUserDetails>();
@@ -11,6 +11,8 @@ const BookingDetailsForm = () => {
   const onSubmit: SubmitHandler<IUserDetails> = async data => {
     console.log("Data", data);
   };
+
+  const handleBookNowBtn = () => {};
 
   return (
     <Wrapper className="margin-top">
@@ -20,12 +22,12 @@ const BookingDetailsForm = () => {
             <Container>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
-                  <div className="col-sm-8 col-lg-7">
+                  <div className="col-sm-8 col-lg-7 col-xl-6 ">
                     <UserDetails register={register} formState={formState} />
                   </div>
 
-                  <div className="col-sm-8 col-lg-4 offset-lg-1">
-                    <Overview />
+                  <div className="col-sm-8 col-lg-5 col-xl-5 offset-xl-1">
+                    <Checkout handleBookNow={handleBookNowBtn} />
                   </div>
                 </div>
               </form>
