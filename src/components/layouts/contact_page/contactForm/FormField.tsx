@@ -22,13 +22,18 @@ const FormField = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
-    const res = await axios.post("/api/contactus", { data });
-    if (res.data?.status) {
-      setResonponse({ message: res.data.message, status: "success" });
-      reset();
-    } else {
-      setResonponse({ message: res.data.message, status: "fail" });
-      reset();
+    try {
+      const res = await axios.post("/api/contactus", { data });
+      console.log("res", res);
+      if (res.data?.status) {
+        setResonponse({ message: res.data.message, status: "success" });
+        reset();
+      } else {
+        setResonponse({ message: res.data.message, status: "fail" });
+        reset();
+      }
+    } catch (error: any) {
+      console.log("Error .....", error);
     }
   };
 
