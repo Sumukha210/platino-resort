@@ -6,6 +6,7 @@ import {
   phoneNumberProps,
   cityProps,
   postCodeProps,
+  streetProps,
 } from "@/utils/inputFieldProps";
 import { UseFormRegister } from "react-hook-form";
 
@@ -33,6 +34,12 @@ export const formFieldsFun = (
       title: "city",
       placeholder: "City*",
       options: register("city", { ...cityProps }),
+    },
+
+    {
+      title: "street",
+      placeholder: "Street*",
+      options: register("street", { ...streetProps }),
     },
 
     {

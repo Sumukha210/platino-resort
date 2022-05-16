@@ -45,6 +45,9 @@
       "@/models/*": [
         "./src/models/*"
       ],
+      "@/API/*": [
+        "./src/API/*"
+      ],
     }
   },
   "include": [

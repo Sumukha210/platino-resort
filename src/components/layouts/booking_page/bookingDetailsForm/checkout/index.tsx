@@ -1,16 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper, ColumnGroup, Column } from "./styles";
 import "react-datepicker/dist/react-datepicker.css";
 import Arrival from "./Arrival";
 import Departure from "./Departure";
 import Guests from "./Guests";
 import Stay from "./Stay";
+import axios from "axios";
+import sub from "date-fns/sub";
 
-interface checkoutProps {
-  handleBookNow: () => void;
-}
+export type bookedDatesTypes = {
+  start: Date;
+  end: Date;
+}[];
 
-const Checkout: React.FC<checkoutProps> = ({ handleBookNow }) => {
+const Checkout = () => {
+  const [bookedDates, setBookedDates] = useState<bookedDatesTypes>();
+
+  const getBookedDates = async () => {
+    try {
+      const res = await axios.get("/api/bookingDetails");
+      setBookedDates(
+        res.data.result.map((item: any) => ({
+          start: sub(new Date(item.start), { days: 1 }),
+          end: new Date(item.end),
+        }))
+      );
+    } catch (error) {
+      console.log("Something went wrong", error);
+    }
+  };
+
+  useEffect(() => {
+    getBookedDates();
+  }, []);
+
   return (
     <Wrapper>
       <div className="header">
@@ -19,8 +42,8 @@ const Checkout: React.FC<checkoutProps> = ({ handleBookNow }) => {
 
       <div className="box">
         <div className="d-flex">
-          <Arrival />
-          <Departure />
+          <Arrival bookedDates={bookedDates} />
+          <Departure bookedDates={bookedDates} />
         </div>
         <Guests />
         <Stay />
@@ -33,9 +56,7 @@ const Checkout: React.FC<checkoutProps> = ({ handleBookNow }) => {
         </ColumnGroup>
 
         <div className="btnContainer">
-          <button type="submit" onClick={handleBookNow}>
-            BOOK NOW
-          </button>
+          <button type="submit">BOOK NOW</button>
         </div>
       </div>
     </Wrapper>

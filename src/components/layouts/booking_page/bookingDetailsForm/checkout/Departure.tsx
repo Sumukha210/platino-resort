@@ -3,8 +3,13 @@ import ReactDatePicker from "react-datepicker";
 import { ColumnGroup, Column } from "./styles";
 import add from "date-fns/add";
 import useBookingStore from "../../bookingStore";
+import { bookedDatesTypes } from ".";
 
-const Departure = ({}) => {
+interface departureProps {
+  bookedDates: bookedDatesTypes | undefined;
+}
+
+const Departure: React.FC<departureProps> = ({ bookedDates }) => {
   const arrival = useBookingStore(state => state.arrival);
   const departure = useBookingStore(state => state.departure);
   const handleDeparture = useBookingStore(state => state.handleDeparture);
@@ -12,7 +17,7 @@ const Departure = ({}) => {
   return (
     <>
       <ColumnGroup className="formInput">
-        <Column className="ps-sm-2">
+        <Column>
           <h6 className="sub-title-4">Departure</h6>
           <ReactDatePicker
             className="calender"
@@ -21,6 +26,7 @@ const Departure = ({}) => {
             minDate={add(arrival || new Date(), { days: 1 })}
             onChange={handleDeparture}
             required
+            excludeDateIntervals={bookedDates}
           />
         </Column>
         <hr />

@@ -66,9 +66,47 @@ export const Column = styled.div`
     width: 100%;
     border: none;
     border-bottom: 1.5px solid var(--secondary-300);
-    /* padding-left: 1rem; */
-    /* margin-top: 12px; */
     outline: none;
     font-weight: bold;
+  }
+
+  .react-datepicker {
+    border-color: var(--secondary-200);
+
+    &__header {
+      background-color: var(--secondary-200);
+    }
+
+    &__navigation-icon {
+      &::before {
+        border-color: var(--secondary-400);
+        height: 7px;
+        width: 7px;
+      }
+    }
+
+    &__day {
+      &:hover {
+        background: var(--secondary-100);
+      }
+
+      &--disabled {
+        color: var(--secondary-200);
+      }
+
+      &--keyboard-selected {
+        background-color: var(--primary-300);
+      }
+
+      &--selected {
+        background: var(--secondary-300);
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          background: var(--secondary-300);
+          opacity: 0.7;
+        }
+      }
+    }
   }
 `;

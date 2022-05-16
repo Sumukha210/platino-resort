@@ -11,13 +11,16 @@ export type IUserDetails = {
   message?: string;
 };
 
+export type IBookingDetails = {
+  arrival: Date;
+  departure: Date;
+  guests: number;
+};
+
 export interface IBooking extends Document {
   userDetails: IUserDetails;
 
-  bookingDetails: {
-    arrival: Date;
-    departure: Date;
-  };
+  bookingDetails: IBookingDetails;
 }
 
 const BookingSchema: Schema = new Schema<IBooking>(
@@ -35,6 +38,7 @@ const BookingSchema: Schema = new Schema<IBooking>(
     bookingDetails: {
       arrival: Date,
       departure: Date,
+      guests: Number,
     },
   },
   { timestamps: true }
