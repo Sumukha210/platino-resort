@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Checkout from "./checkout";
 import { Container, Wrapper } from "./userDetails/styles";
 import UserDetails from "./userDetails";
-import useBookingStore from "../bookingStore";
+import useBookingStore from "../../../../store/bookingStore";
 import axios from "axios";
 
 interface bookingDetailsProps {

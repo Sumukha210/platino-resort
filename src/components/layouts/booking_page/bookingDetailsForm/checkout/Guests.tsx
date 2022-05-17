@@ -1,6 +1,6 @@
 import React from "react";
 import { ColumnGroup, Column } from "./styles";
-import useBookingStore from "../../bookingStore";
+import useBookingStore from "../../../../../store/bookingStore";
 
 const Guests = () => {
   const guests = useBookingStore(state => state.guests);

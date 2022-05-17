@@ -7,12 +7,13 @@ import {
   TableHead,
   Wrapper,
 } from "./prictTableStyles";
+import usePricingStore from "@/store/pricingStore";
 
 const PriceTable = () => {
-  const [pricing, setPricing] = useState<IPricing[] | null>(null);
-
+  const pricing = usePricingStore(s => s.pricing);
+  const getPricing = usePricingStore(s => s.getPricing);
   useEffect(() => {
-    fetchPricing(setPricing);
+    getPricing();
   }, []);
 
   const { dayType, seasons, sortedPricing } = tableValues(pricing);
@@ -59,12 +60,6 @@ const PriceTable = () => {
                 ))}
               </TableContent>
             </TableContainer>
-
-            <div className="footer">
-              <h5 className="sub-title-3">
-                * Price includes all the facilities like wellness,food etc...
-              </h5>
-            </div>
           </div>
         </div>
       </div>

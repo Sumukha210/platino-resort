@@ -2,7 +2,7 @@ import React from "react";
 import ReactDatePicker from "react-datepicker";
 import { ColumnGroup, Column } from "./styles";
 import add from "date-fns/add";
-import useBookingStore from "../../bookingStore";
+import useBookingStore from "../../../../../store/bookingStore";
 import { bookedDatesTypes } from ".";
 
 interface departureProps {

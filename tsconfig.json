@@ -48,6 +48,9 @@
       "@/API/*": [
         "./src/API/*"
       ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
     }
   },
   "include": [

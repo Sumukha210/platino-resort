@@ -37,7 +37,9 @@ export const ColumnGroup = styled.div`
   &.totAmount {
     border-top: 1.5px solid var(--secondary-300);
 
-    font-family: var(--secondary-font);
+    h5:first-child {
+      font-family: var(--secondary-font);
+    }
   }
 
   &:not(.totalAmount) {

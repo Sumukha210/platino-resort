@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDatePicker from "react-datepicker";
-import useBookingStore from "../../bookingStore";
+import useBookingStore from "../../../../../store/bookingStore";
 import { ColumnGroup, Column } from "./styles";
 import { bookedDatesTypes } from ".";
 import add from "date-fns/add";
