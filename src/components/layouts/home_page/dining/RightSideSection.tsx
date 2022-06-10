@@ -13,11 +13,17 @@ const RightSection: React.FC<RightSectionProps> = ({ setCurrentMenuNum }) => {
   return (
     <>
       <div className="right">
-        <h6 className="caption-2 caption">Dining</h6>
-        <h2 className="heading-4 title">Our Restaurant</h2>
+        <h6 className="caption-2 caption">
+          <span>Dining</span>
+        </h6>
+        <h2 className="heading-4 title">
+          <span>Our Restaurant</span>
+        </h2>
         <p className="sub-title-1 sub-title">
-          The buffet breakfast is served in the lounge on the ground floor and
-          also outside on our little patio.
+          <span>
+            The buffet breakfast is served in the lounge on the ground floor and
+            also outside on our little patio.
+          </span>
         </p>
         <div className="options">
           {menuNames.map(({ name }, num) => (

@@ -12,6 +12,15 @@ export const Wrapper = styled.div`
     .title {
       margin-bottom: 1.5rem;
     }
+
+    .caption,
+    .title,
+    .para {
+      overflow: hidden;
+      span {
+        display: inline-block;
+      }
+    }
   }
 
   .right {

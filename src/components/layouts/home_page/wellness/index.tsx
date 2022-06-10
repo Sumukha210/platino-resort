@@ -17,8 +17,8 @@ const Wellness = () => {
     scrollingTextAnimation({
       trigger: wrapperRef.current,
       targets: [
-        children(".heading"),
-        children(".subtitle"),
+        children(".heading span"),
+        children(".subtitle span"),
         children(".exploreBtn"),
       ],
     });
@@ -32,12 +32,16 @@ const Wellness = () => {
             <div className="col-md-10">
               <div className="row">
                 <div className="col-lg-7">
-                  <h2 className="heading-3 bold heading">Wellness</h2>
+                  <h2 className="heading-3 bold heading">
+                    <span>Wellness</span>
+                  </h2>
                   <p className="sub-title-2 subtitle">
-                    Wellness is very much on the menu. The Resort has both
-                    indoor and outdoor swimming pool, on two different levels,
-                    plus a spa, a mosaic-tiled hammam with stone seating, and a
-                    Jacuzzi.
+                    <span>
+                      Wellness is very much on the menu. The Resort has both
+                      indoor and outdoor swimming pool, on two different levels,
+                      plus a spa, a mosaic-tiled hammam with stone seating, and
+                      a Jacuzzi.
+                    </span>
                   </p>
                   <h5
                     className="caption-3 exploreBtn"
@@ -64,6 +68,15 @@ const Wrapper = styled.div`
 
   .header {
     color: var(--light-color);
+
+    .heading,
+    .subtitle {
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+      }
+    }
 
     p {
       margin: 1.5rem 0;

@@ -12,11 +12,11 @@ const useAnimation = () => {
   useIsomorphicLayoutEffect(() => {
     scrollingTextAnimation({
       targets: [
-        children(".left .caption-2"),
-        children(".left .title"),
-        children(".left .para"),
+        children(".left .caption-2 span"),
+        children(".left .title span"),
+        children(".left .para span"),
       ],
-      trigger: children(".left"),
+      trigger: wrapperRef.current,
     });
 
     scrollingTextAnimation({

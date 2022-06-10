@@ -42,6 +42,16 @@ export const Wrapper = styled.div`
         margin-top: 1rem;
       }
 
+      .title,
+      .sub-title,
+      .caption {
+        overflow: hidden;
+
+        span {
+          display: inline-block;
+        }
+      }
+
       .options {
         margin-top: 2rem;
         margin-bottom: 2.5rem;

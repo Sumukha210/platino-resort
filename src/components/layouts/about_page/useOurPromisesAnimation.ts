@@ -44,7 +44,7 @@ export const useOurPromisesAnimation = () => {
   useIsomorphicLayoutEffect(() => {
     scrollingTextAnimation({
       trigger: wrapperRef.current,
-      targets: [children(".title span"), children("ul li")],
+      targets: [children(".title span"), children("ul")],
     });
   }, []);
 

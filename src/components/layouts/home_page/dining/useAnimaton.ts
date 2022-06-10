@@ -25,9 +25,9 @@ const useAnimaton = () => {
     scrollingTextAnimation({
       trigger: children(".right"),
       targets: [
-        children(".right .caption"),
-        children(".right .title"),
-        children(".right .sub-title"),
+        children(".right .caption span"),
+        children(".right .title span"),
+        children(".right .sub-title span"),
         children(".right .options"),
         children(".right .btnContainer"),
       ],
