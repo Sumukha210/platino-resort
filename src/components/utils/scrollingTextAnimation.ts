@@ -17,7 +17,7 @@ export const scrollingTextAnimation = ({
       start,
     },
     y: 80,
-    duration: 0.9,
+    duration: 1,
     ease: "power4.easeIn",
     stagger: 0.3,
     autoAlpha: 0,

@@ -2,16 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { founders_team_info } from "../utils";
 import NextImg from "next/image";
+import { useFoundersAnimation } from "./animation";
 
 const Founders_And_Team = () => {
+  const wrapperRef = useFoundersAnimation();
+
   return (
-    <Wrapper className="margin-top">
+    <Wrapper className="margin-top" ref={wrapperRef}>
       <div className="custom-container">
         <div className="row justify-content-center">
           <div className="col-md-9 col-lg-10">
             <div className="content">
               <h2 className="title heading-3">
-                Founders & <br /> Team
+                <span>Founders &</span> <br /> <span>Team</span>
               </h2>
 
               <div className="row gx-4">
@@ -46,6 +49,12 @@ export default Founders_And_Team;
 const Wrapper = styled.div`
   .title {
     margin-bottom: 2rem;
+
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+    }
   }
 
   .card {

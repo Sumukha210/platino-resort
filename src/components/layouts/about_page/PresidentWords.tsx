@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import NextImg from "next/image";
 import { founders_team_info } from "./utils";
+import { usePresidentWordsAnimation } from "./usePresidentWordsAnimation";
 
 const PresidentWords = () => {
   const { imgSrc, designation, quote, name } = founders_team_info[0];
+  const wrapperRef = usePresidentWordsAnimation();
 
   return (
-    <Wrapper className="margin-top component-inner-gap">
+    <Wrapper className="margin-top component-inner-gap" ref={wrapperRef}>
       <div className="custom-container">
         <div className="row justify-content-center">
           <div className="col-md-9 col-lg-10">
@@ -19,9 +21,15 @@ const PresidentWords = () => {
               </div>
               <div className="col-lg-6">
                 <div className="right">
-                  <h6 className="caption-2">{designation}</h6>
-                  <h2 className="heading-4 bold">{name}</h2>
-                  <p className="sub-title-2">{quote}</p>
+                  <h6 className="caption-2 caption">
+                    <span>{designation}</span>
+                  </h6>
+                  <h2 className="heading-4 bold title">
+                    <span>{name}</span>
+                  </h2>
+                  <p className="sub-title-2 quote">
+                    <span>{quote}</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -41,6 +49,9 @@ const Wrapper = styled.div`
     @media (max-width: 991.98px) {
       margin-bottom: 1rem;
     }
+
+    background-color: var(--secondary-300);
+
     & > span {
       height: 650px !important;
       width: 100% !important;
@@ -59,6 +70,16 @@ const Wrapper = styled.div`
 
     p {
       margin-top: 1.5rem;
+    }
+
+    .title,
+    .caption,
+    .quote {
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+      }
     }
   }
 `;
