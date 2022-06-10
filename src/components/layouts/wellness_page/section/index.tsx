@@ -23,9 +23,15 @@ const Section: React.FC<sectionTypes> = ({
         <div className="header">
           <div className="row justify-content-center">
             <div className="col-md-10 col-lg-8 col-xl-7">
-              <h6 className="caption caption-2">{caption}</h6>
-              <h2 className="heading heading-3 bold">{title}</h2>
-              <p className="para sub-title-2">{para}</p>
+              <h6 className="caption caption-2">
+                <span>{caption}</span>
+              </h6>
+              <h2 className="heading heading-3 bold">
+                <span>{title}</span>
+              </h2>
+              <p className="para sub-title-2">
+                <span>{para}</span>
+              </p>
             </div>
           </div>
         </div>

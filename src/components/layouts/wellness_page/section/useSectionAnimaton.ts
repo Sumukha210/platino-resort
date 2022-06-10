@@ -35,15 +35,15 @@ export const useSectionAnimation = (fromRightToLeft: boolean = false) => {
     )
       .from(
         [
-          childrenEle(".caption"),
-          childrenEle(".heading"),
-          childrenEle(".para"),
+          childrenEle(".caption span"),
+          childrenEle(".heading span"),
+          childrenEle(".para span"),
         ],
         {
           y: 80,
-          duration: 1.2,
+          duration: 1.1,
           ease: "power4.easeIn",
-          stagger: 0.3,
+          stagger: 0.1,
           autoAlpha: 0,
         }
       )

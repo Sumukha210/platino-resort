@@ -15,6 +15,16 @@ export const Wrapper = styled.div<wrapperProps>`
     .heading {
       margin-bottom: 1.5rem;
     }
+
+    .heading,
+    .caption,
+    .para {
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+      }
+    }
   }
 `;
 
