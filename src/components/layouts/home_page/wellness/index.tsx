@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import styled from "styled-components";
-import Slider from "./slider";
+import Slider from "./Slider";
 import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
