@@ -1,4 +1,4 @@
-import { gsap } from "gsap";
+import { gsap, Power3 } from "gsap";
 
 interface scrollingTextAnimationTypes {
   trigger: gsap.DOMTarget | undefined;
@@ -17,9 +17,9 @@ export const scrollingTextAnimation = ({
       start,
     },
     y: 80,
-    duration: 1,
-    ease: "power4.easeIn",
-    stagger: 0.3,
+    duration: 1.4,
+    ease: Power3.easeOut,
+    stagger: 0.15,
     autoAlpha: 0,
   });
 };

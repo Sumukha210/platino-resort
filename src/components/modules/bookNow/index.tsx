@@ -4,7 +4,7 @@ import Info from "./Info";
 import Slider from "./slider";
 import { sliderImagesType } from "./types";
 import useIsomorphicLayoutEffect from "@/customHook/useLayoutEffect";
-import { gsap } from "gsap";
+import { gsap, Power3 } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const BookNow: React.FC<sliderImagesType> = ({ images }) => {
@@ -22,9 +22,9 @@ const BookNow: React.FC<sliderImagesType> = ({ images }) => {
       [children(".heading"), children(".subtitle"), children(".btnContainer")],
       {
         y: 80,
-        duration: 0.9,
-        ease: "power4.easeIn",
-        stagger: 0.3,
+        duration: 1.4,
+        ease: Power3.easeOut,
+        stagger: 0.15,
         autoAlpha: 0,
       }
     ).from(children("figure"), {
